@@ -21,13 +21,18 @@ function loadData(){
 
 function initPageElement(){
 	inputSentence = createInput("");
-	inputSentence.size(300);
+	inputSentence.size(800,400);
 	inputSentence.parent('sketch-holder');
 
 	dropdown = createSelect();
 	dropdown.size(300);
 	dropdown.class('buttons');
-	dropdown.parent('')
+	dropdown.parent('dropdown-holder');
+	dropdown.option('Bon Jovi Always');
+	dropdown.option('State of Union 05');
+	dropdown.option('Weezer');
+	dropdown.option('Friends Transcript');
+	dropdown.changed(dropdownSelect);
 
 	analyzeTopicsButton = createButton("Analyze Topics");
 	analyzeTopicsButton.class('buttons');
@@ -46,6 +51,11 @@ function initPageElement(){
 	analyzeNounButton.mousePressed(analyzeNoun);
 	analyzeButton.mousePressed(nlpTest);
 
+}
+
+function dropdownSelect(){
+	var itemSelected = dropdown.value();
+	console.log(itemSelected);
 }
 
 function nlpTest(){
