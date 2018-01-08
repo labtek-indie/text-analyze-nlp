@@ -12,10 +12,6 @@ function setup() {
 
 }
 
-function draw(){
-
-}
-
 function loadData(){
 	rawText1 = loadStrings("data/Bon Jovi Always.txt")
 	rawText2 = loadStrings("data/State of Union 05.txt")
