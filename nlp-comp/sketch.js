@@ -17,10 +17,10 @@ function draw(){
 }
 
 function loadData(){
-	rawText1 = loadStrings("data/Bon Jovi Always.txt")
-	rawText2 = loadStrings("data/State of Union 05.txt")
-	rawText3 = loadStrings("data/Weezer Lyrics.txt")
-	rawText4 = loadStrings("data/Friends Episode Transcript.txt")
+	rawText1 = loadStrings("../data/Bon Jovi Always.txt")
+	rawText2 = loadStrings("../data/State of Union 05.txt")
+	rawText3 = loadStrings("../data/Weezer Lyrics.txt")
+	rawText4 = loadStrings("../data/Friends Episode Transcript.txt")
 
 }
 
