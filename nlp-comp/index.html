@@ -18,10 +18,11 @@
       margin:0;
 			margin-left:45px;
 			padding:0;
-			overflow: hidden;
+			overflow: scroll;
 		}
 		canvas {
 			margin:auto;
+			overflow: scroll;
 		}
 		.buttons {
 	    background-color: #4CAF50; /* Green */
@@ -34,16 +35,37 @@
 	    display: inline-block;
 	    font-size: 16px;
 		}
+		.submitButton {
+	    background-color: #4CAF50;
+	    border: none;
+	    color: white;
+	    padding: 3px 20px;
+			margin-right: 5px;
+	    text-align: center;
+	    text-decoration: none;
+	    display: inline-block;
+	    font-size: 16px;
+		}
+		.textField{
+			overflow-wrap: break-word;
+		}
+		#text-holder{
+			height:auto;
+			width:auto;
+			font:16px/26px Georgia, Garamond, Serif;
+			overflow:auto;
+		}
 	</style>
 </head>
 <body>
 	<h1> Text Analyzer </h1>
-	<div id="sketch-holder">
-
-	</div>
+	<p>Choose your text</p>
+	<div id="text-holder"></div>
 	<br>
 	<div id="dropdown-holder"></div>
 	<br>
 	<div id="buttons-holder"></div>
+	<br>
+	<div id="canvas-holder"></div>
 </body>
 </html>
