@@ -9,11 +9,6 @@ var canvas;
 function setup() {
 	loadData();
 	initPageElement();
-
-}
-
-function draw(){
-
 }
 
 function loadData(){
@@ -97,13 +92,14 @@ function dropdownSelect(){
 function nlpTest(){
 	clear();
 	var nlpString = nlp(inputString);
+	var contractions = nlpString.contractions().out('frequency');
+	var dates = nlpString.dates().out('terms');
+	var ngrams = nlpString.ngrams().out('terms');
+	var place = nlpString.places().out('frequency');
 
-	var people = nlpString.people().out('frequency');
-	var topics = nlpString.topics().out('frequency');
-
-	var output = people;
-	console.log(output);
-	createBar(people);
+	var query = place;
+	console.log(query);
+	// createBar(place);
 }
 
 

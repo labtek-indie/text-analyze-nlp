@@ -9,14 +9,13 @@ var canvas;
 function setup() {
 	loadData();
 	initPageElement();
-
 }
 
 function loadData(){
-	rawText1 = loadStrings("data/Bon Jovi Always.txt")
-	rawText2 = loadStrings("data/State of Union 05.txt")
-	rawText3 = loadStrings("data/Weezer Lyrics.txt")
-	rawText4 = loadStrings("data/Friends Episode Transcript.txt")
+	rawText1 = loadStrings("../data/Bon Jovi Always.txt")
+	rawText2 = loadStrings("../data/State of Union 05.txt")
+	rawText3 = loadStrings("../data/Weezer Lyrics.txt")
+	rawText4 = loadStrings("../data/Friends Episode Transcript.txt")
 
 }
 
@@ -93,13 +92,14 @@ function dropdownSelect(){
 function nlpTest(){
 	clear();
 	var nlpString = nlp(inputString);
+	var contractions = nlpString.contractions().out('frequency');
+	var dates = nlpString.dates().out('terms');
+	var ngrams = nlpString.ngrams().out('terms');
+	var place = nlpString.places().out('frequency');
 
-	var people = nlpString.people().out('frequency');
-	var topics = nlpString.topics().out('frequency');
-
-	var output = people;
-	console.log(output);
-	createBar(people);
+	var query = place;
+	console.log(query);
+	// createBar(place);
 }
 
 
