@@ -99,7 +99,7 @@ function nlpTest(){
 
 	var query = place;
 	console.log(query);
-	// createBar(place);
+	createBar(place);
 }
 
 
