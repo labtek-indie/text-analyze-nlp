@@ -1,6 +1,6 @@
 
 var inputSentence, analyzeTopicsButton, analyzePeopleButton,
-		analyzeButton, submitButton, analyzePlaceButton;
+		analyzeButton, submitButton, analyzePlaceButton, analyzeOrgButton;
 var longString;
 var inputString;
 var rawText1,rawText2,rawText3,rawText4;
@@ -55,6 +55,10 @@ function initPageElement(){
 	analyzePlaceButton.class('buttons');
 	analyzePlaceButton.parent('buttons-holder');
 
+	analyzeOrgButton = createButton("Analyze Organizations");
+	analyzeOrgButton.class('buttons');
+	analyzeOrgButton.parent('buttons-holder');
+
 	analyzeButton = createButton("Analyze");
 	analyzeButton.class('buttons');
 	analyzeButton.parent('buttons-holder');
@@ -67,6 +71,7 @@ function initPageElement(){
 	analyzePeopleButton.mousePressed(analyzePeople);
 	analyzePlaceButton.mousePressed(analyzePlace);
 	analyzeButton.mousePressed(nlpTest);
+	analyzeOrgButton.mousePressed(analyzeOrg);
 
 }
 
@@ -111,6 +116,13 @@ function nlpTest(){
 	var query = organizations;
 	console.log(query);
 	createBar(query);
+}
+
+function analyzeOrg(){
+	clear();
+	var nlpString = nlp(inputString);
+	var organizations = nlpString.organizations().out('frequency');
+	createBar(organizations);
 }
 
 function analyzePlace(){
