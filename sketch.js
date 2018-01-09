@@ -147,6 +147,6 @@ function createBar(object){
 
 	    fill('#4CAF50');
 	    text(object[i].normal+" "+object[i].percent+"%", 100, barWidth/2 + 5); // write data
-    pop();
+   	  pop();
 	}
 }
