@@ -1,5 +1,6 @@
 
-var inputSentence, analyzeTopicsButton, analyzePeopleButton, analyzeButton, submitButton;
+var inputSentence, analyzeTopicsButton, analyzePeopleButton,
+		analyzeButton, submitButton, analyzePlaceButton;
 var longString;
 var inputString;
 var rawText1,rawText2,rawText3,rawText4;
@@ -32,8 +33,8 @@ function initPageElement(){
 	dropdown.size(300);
 	dropdown.class('buttons');
 	dropdown.parent('dropdown-holder');
-	dropdown.option('Bon Jovi Always');
 	dropdown.option('State of Union 05');
+	dropdown.option('Bon Jovi Always');
 	dropdown.option('Weezer');
 	dropdown.option('Friends Transcript');
 	// dropdown.changed(dropdownSelect);
@@ -50,6 +51,10 @@ function initPageElement(){
 	analyzePeopleButton.class('buttons');
 	analyzePeopleButton.parent('buttons-holder');
 
+	analyzePlaceButton = createButton("Analyze Place");
+	analyzePlaceButton.class('buttons');
+	analyzePlaceButton.parent('buttons-holder');
+
 	analyzeButton = createButton("Analyze");
 	analyzeButton.class('buttons');
 	analyzeButton.parent('buttons-holder');
@@ -60,8 +65,8 @@ function initPageElement(){
 	submitButton.mousePressed(dropdownSelect);
 	analyzeTopicsButton.mousePressed(analyzeTopics);
 	analyzePeopleButton.mousePressed(analyzePeople);
+	analyzePlaceButton.mousePressed(analyzePlace);
 	analyzeButton.mousePressed(nlpTest);
-
 
 }
 
@@ -96,9 +101,22 @@ function nlpTest(){
 	var dates = nlpString.dates().out('terms');
 	var ngrams = nlpString.ngrams().out('terms');
 	var place = nlpString.places().out('frequency');
+	var verbs = nlpString.verbs().out('frequency');
+	var adjective = nlpString.adjectives().out('frequency');
+	var statements = nlpString.statements().out('terms');
+	var quotations = nlpString.quotations().out('terms');
+	var clauses = nlpString.clauses().out('terms');
+	var organizations = nlpString.organizations().out('frequency');
 
-	var query = place;
+	var query = organizations;
 	console.log(query);
+	createBar(query);
+}
+
+function analyzePlace(){
+	clear();
+	var nlpString = nlp(inputString);
+	var place = nlpString.places().out('frequency');
 	createBar(place);
 }
 
